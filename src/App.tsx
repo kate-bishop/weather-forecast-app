@@ -1,13 +1,18 @@
 import React from 'react';
-import './util/styles.css';
+import './shared/styles.scss';
+import { theme } from './shared/MuiTheme'
+import { ThemeProvider } from '@mui/material/styles'
 import LocationHeader from './components/LocationHeader';
+import ForecastContainer from './components/ForecastContainer';
 
 function App() {
   return (
-    <div className="App">
-      <LocationHeader />
-      {/* Forecast Card */}
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <LocationHeader />
+        <ForecastContainer />
+      </div>
+    </ThemeProvider>
   );
 }
 

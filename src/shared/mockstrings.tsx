@@ -1,0 +1,6 @@
+export const location = "Dallas, TX"
+export const date = "Tuesday, July 12, 2022"
+export const currentTemperature = "93"
+export const currentWeather = "PARTLY_CLOUDY"
+export const windspeed = "12"
+export const speedUnit = "mph"

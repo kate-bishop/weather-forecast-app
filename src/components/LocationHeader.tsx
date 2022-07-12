@@ -1,12 +1,16 @@
 import React from 'react';
-import '../util/styles.css';
-import { Typography } from '@mui/material'
-import { location, date } from '../util/mockstrings';
+import '../shared/styles.scss';
+import { Grid, Typography } from '@mui/material'
+import { location, date } from '../shared/mockstrings';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 function LocationHeader() {
   return (
     <div className="header">
-        <Typography variant="h6">{location}</Typography>
+        <Grid container direction="row" alignItems="center" justifyContent="center">
+          <LocationOnIcon />
+          <Typography variant="h6">{location}</Typography>
+        </Grid>
         <Typography variant="subtitle1">{date}</Typography>
     </div>
   );

@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+$font-stack: 'Open Sans', sans-serif;
+$primary-color: rgb(74, 74, 74);
+$secondary-color: rgb(101, 174, 213);
+$tertiary-color: rgb(38, 133, 189);
+$shadow-color: rgba(0,0,0,0.2);
+
+.App {
+  text-align: center;
+  font: 100% $font-stack;
+  background: linear-gradient(45deg, rgb(17, 93, 163), rgb(78, 207, 237));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.container {
+  border-radius: 3px;
+  filter: drop-shadow(0 0 7.5px $shadow-color);
+  min-width: 75vh;
+  min-height: 50vh;
+}
+
+.today-container {
+  border-radius: 3px;
+  min-width: 75vh;
+  min-height: 50vh;
+  background-image: url('./Dallas.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.forecast-container {
+  border-radius: 3px;
+  min-width: 75vh;
+}
+
+.forecast-card {
+  min-height: 20vh;
+
+}
