@@ -19,9 +19,7 @@ function App() {
     function handleWindowResize() {
       setWindowSize(getWindowSize());
     }
-
     window.addEventListener('resize', handleWindowResize);
-
     return () => {
       window.removeEventListener('resize', handleWindowResize);
     };
@@ -49,7 +47,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <LocationHeader />
-        {!isLoading && current && <ForecastContainer forecast={forecast} current={current} unit={unit} setUnit={setUnit}/>}
+        {!isLoading && current && <ForecastContainer forecast={forecast} current={current} unit={unit} setUnit={setUnit} windowSize={windowSize.innerWidth} />}
       </div>
     </ThemeProvider>
   );
