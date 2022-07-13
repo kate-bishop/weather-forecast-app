@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material'
-import { LOCATION } from '../shared/util';
+import { LOCATION } from '../shared/utils/constants';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 function LocationHeader() {

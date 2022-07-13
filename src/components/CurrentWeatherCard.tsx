@@ -1,6 +1,6 @@
 import { Grid, Typography } from '@mui/material'
 import WeatherIcon from './WeatherIcon'
-import { Forecast, UNIT, SPEED_UNIT } from '../shared/util'
+import { Forecast, UNIT, SPEED_UNIT } from '../shared/utils/constants'
 
 function CurrentWeatherCard(props: { current: Forecast, unit: string }) {
     return (

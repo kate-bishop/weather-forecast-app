@@ -4,14 +4,28 @@ import { theme } from './shared/styles/MuiTheme'
 import { ThemeProvider } from '@mui/material/styles'
 import LocationHeader from './components/LocationHeader';
 import ForecastContainer from './components/ForecastContainer';
-import { getCurrent, getForecast, processForecast, buildForecast, Forecast, UNIT } from './shared/util'
-import { LON, LAT } from './shared/util'
+import { getCurrent, getForecast } from './shared/utils/api'
+import { processForecast, buildForecast, getWindowSize } from './shared/utils/functions'
+import { LON, LAT, UNIT, Forecast } from './shared/utils/constants'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [current, setCurrent] = useState<Forecast | null>(null)
   const [forecast, setForecast] = useState<Forecast[]>([])
   const [unit, setUnit] = useState(UNIT.IMPERIAL)
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
 
   useEffect(() => {
     getForecast(LAT, LON, unit)

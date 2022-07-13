@@ -5,7 +5,7 @@ import ThunderstormOutlinedIcon from '@mui/icons-material/ThunderstormOutlined';
 import UmbrellaOutlinedIcon from '@mui/icons-material/UmbrellaOutlined';
 import GrainOutlinedIcon from '@mui/icons-material/GrainOutlined';
 import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
-import { WEATHER } from '../shared/util';
+import { WEATHER } from '../shared/utils/constants';
 
 // TODO
 function CurrentWeatherCard(props: { weather: string }) {

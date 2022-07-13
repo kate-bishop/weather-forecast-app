@@ -3,7 +3,7 @@ import { Grid, Paper } from '@mui/material'
 import CurrentWeatherCard from './CurrentWeatherCard';
 import ForecastCard from './ForecastCard';
 import UnitToggle from './UnitToggle';
-import { Forecast } from '../shared/util'
+import { Forecast } from '../shared/utils/constants'
 
 function ForecastContainer(props: { forecast: Forecast[], current: Forecast, unit: string, setUnit: Function }) {
     return (

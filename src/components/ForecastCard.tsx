@@ -1,6 +1,6 @@
 import { Card, Grid, Typography } from '@mui/material'
 import WeatherIcon from './WeatherIcon'
-import { Forecast, WEEKDAY } from '../shared/util'
+import { Forecast, WEEKDAY } from '../shared/utils/constants'
 
 function ForecastCard(props: { forecast: Forecast }) {
     return (

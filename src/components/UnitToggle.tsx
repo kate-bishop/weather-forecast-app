@@ -1,7 +1,7 @@
 import '../shared/styles/styles.scss';
 import { styled } from '@mui/material/styles';
 import Switch, { SwitchProps } from '@mui/material/Switch'
-import { UNIT } from '../shared/util';
+import { UNIT } from '../shared/utils/constants';
 
 const StyledSwitch = styled((props: SwitchProps) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
