@@ -1,4 +1,3 @@
-import React from 'react';
 import '../shared/styles/styles.scss';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';

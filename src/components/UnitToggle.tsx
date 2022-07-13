@@ -1,10 +1,9 @@
-import React from 'react';
 import '../shared/styles/styles.scss';
 import { styled } from '@mui/material/styles';
 import Switch, { SwitchProps } from '@mui/material/Switch'
+import { UNIT } from '../shared/util';
 
-// TODO
-const IOSSwitch = styled((props: SwitchProps) => (
+const StyledSwitch = styled((props: SwitchProps) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
 ))(({ theme }) => ({
     width: 42,
@@ -39,9 +38,11 @@ const IOSSwitch = styled((props: SwitchProps) => (
     },
 }));
 
-function UnitToggle() {
+function UnitToggle(props: { unit: string, setUnit: Function }) {
     return (
-        <IOSSwitch defaultChecked />
+        <StyledSwitch defaultChecked value={props.unit === UNIT.IMPERIAL ? true : false} onChange={(e) => {
+            props.setUnit(e.target.checked ? UNIT.IMPERIAL : UNIT.METRIC)
+        }} />
     );
 }
 

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './shared/styles/styles.scss';
 import { theme } from './shared/styles/MuiTheme'
 import { ThemeProvider } from '@mui/material/styles'
 import LocationHeader from './components/LocationHeader';
 import ForecastContainer from './components/ForecastContainer';
 import { getCurrent, getForecast, processForecast, buildForecast, Forecast, UNIT } from './shared/util'
-import { lon, lat } from './shared/mockstrings'
+import { LON, LAT } from './shared/util'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -14,7 +14,7 @@ function App() {
   const [unit, setUnit] = useState(UNIT.IMPERIAL)
 
   useEffect(() => {
-    getForecast(lat, lon, unit)
+    getForecast(LAT, LON, unit)
       .then(response => {
         setForecast(processForecast(response.list))
         setIsLoading(false)
@@ -23,9 +23,8 @@ function App() {
   }, [unit])
 
   useEffect(() => {
-    getCurrent(lat, lon, unit)
+    getCurrent(LAT, LON, unit)
       .then(response => {
-        console.log(response)
         setCurrent(buildForecast(response, new Date()))
         setIsLoading(false)
       })
@@ -36,7 +35,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div className="App">
         <LocationHeader />
-        {!isLoading && current && <ForecastContainer forecast={forecast} current={current} />}
+        {!isLoading && current && <ForecastContainer forecast={forecast} current={current} unit={unit} setUnit={setUnit}/>}
       </div>
     </ThemeProvider>
   );

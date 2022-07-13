@@ -1,6 +1,13 @@
 const API_KEY = "5e09b0a0903cac624880eb2b5e700e08"
 const EXCLUSIONS = "minutely,hourly"
+export const LOCATION = "Dallas, TX"
+export const LAT = "32.7767"
+export const LON = "-96.7970"
 export const WEEKDAY = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+export const SPEED_UNIT = {
+  IMPERIAL: "mph",
+  METRIC: "m/s",
+}
 export const UNIT = {
   IMPERIAL: "imperial",
   METRIC: "metric",

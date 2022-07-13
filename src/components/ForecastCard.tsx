@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, Grid, Typography } from '@mui/material'
 import WeatherIcon from './WeatherIcon'
 import { Forecast, WEEKDAY } from '../shared/util'
