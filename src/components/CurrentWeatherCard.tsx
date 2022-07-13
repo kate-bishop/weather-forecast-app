@@ -7,13 +7,13 @@ import { Forecast } from '../shared/util'
 
 function CurrentWeatherCard(props: { current: Forecast }) {
     return (
-        <Grid container direction="row">
-            <Grid item><Typography variant="h2">{props.current.main.temp}°</Typography></Grid>
+        <Grid container direction="row" alignItems="flex-end" className="current">
+            <Grid item><Typography variant="h3" color="textSecondary">{props.current.main.temp}°</Typography></Grid>
             <Grid item><WeatherIcon weather={props.current.weather.main} /></Grid>
             <Grid item>
                 <Grid container direction="column">
-                    <Typography align="left">{props.current.weather.description}</Typography>
-                    <Typography align="left">{props.current.wind.speed} {speedUnit}</Typography>
+                    <Typography variant="subtitle2" align="left" color="textSecondary">{props.current.weather.description}</Typography>
+                    <Typography variant="subtitle2" align="left" color="textSecondary">{props.current.wind.speed} {speedUnit}</Typography>
                 </Grid>
             </Grid>
         </Grid>

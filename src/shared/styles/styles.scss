@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 $font-stack: 'Open Sans', sans-serif;
 $primary-color: rgb(74, 74, 74);
@@ -19,6 +19,10 @@ $shadow-color: rgba(0,0,0,0.2);
   color: white;
 }
 
+.location {
+  margin-bottom: 1.25rem;
+}
+
 .container {
   border-radius: 3px;
   filter: drop-shadow(0 0 7.5px $shadow-color);
@@ -33,6 +37,7 @@ $shadow-color: rgba(0,0,0,0.2);
   background-image: url('../Dallas.png');
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 1.25rem 2rem 1.25rem 2rem;
 }
 
 .forecast-container {
@@ -41,11 +46,15 @@ $shadow-color: rgba(0,0,0,0.2);
 }
 
 .forecast-card {
-  min-height: 20vh;
+  min-height: 17vh;
   align-items: center;
   justify-content: center;
 }
 
 .forecast-grid {
-  height: 100%
+  height: 100%;
+}
+
+.weather-icon {
+  padding: .5rem 1rem 0rem .5rem;
 }

@@ -5,13 +5,17 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 function LocationHeader() {
   return (
-    <>
-        <Grid container direction="row" alignItems="center" justifyContent="center">
-          <LocationOnIcon />
+    <div className='location'>
+      <Grid container direction="row" alignItems="center" justifyContent="center">
+        <Grid item>
+          <LocationOnIcon fontSize="small" style={{ marginRight: '.25rem' }} />
+        </Grid>
+        <Grid item>
           <Typography variant="h6">{location}</Typography>
         </Grid>
-        <Typography variant="subtitle1">{date}</Typography>
-    </>
+      </Grid>
+      <Typography variant="body2">{date}</Typography>
+    </div>
   );
 }
 

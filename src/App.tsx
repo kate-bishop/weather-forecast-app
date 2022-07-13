@@ -4,13 +4,14 @@ import { theme } from './shared/styles/MuiTheme'
 import { ThemeProvider } from '@mui/material/styles'
 import LocationHeader from './components/LocationHeader';
 import ForecastContainer from './components/ForecastContainer';
-import { getCurrent, getForecast, processForecast, buildForecast, Forecast } from './shared/util'
-import { lon, lat, unit } from './shared/mockstrings'
+import { getCurrent, getForecast, processForecast, buildForecast, Forecast, UNIT } from './shared/util'
+import { lon, lat } from './shared/mockstrings'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [current, setCurrent] = useState<Forecast | null>(null)
   const [forecast, setForecast] = useState<Forecast[]>([])
+  const [unit, setUnit] = useState(UNIT.IMPERIAL)
 
   useEffect(() => {
     getForecast(lat, lon, unit)
@@ -19,7 +20,7 @@ function App() {
         setIsLoading(false)
       })
       .catch(error => console.log(error));
-  }, [])
+  }, [unit])
 
   useEffect(() => {
     getCurrent(lat, lon, unit)
@@ -29,7 +30,7 @@ function App() {
         setIsLoading(false)
       })
       .catch(error => console.log(error));
-  }, [])
+  }, [unit])
 
   return (
     <ThemeProvider theme={theme}>

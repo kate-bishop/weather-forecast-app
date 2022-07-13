@@ -1,5 +1,21 @@
 const API_KEY = "5e09b0a0903cac624880eb2b5e700e08"
 const EXCLUSIONS = "minutely,hourly"
+export const WEEKDAY = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+export const UNIT = {
+  IMPERIAL: "imperial",
+  METRIC: "metric",
+}
+export const WEATHER = {
+  CLEAR_SKY: "Clear sky",
+  FEW_CLOUDS: "Few clouds",
+  SCATTERED_CLOUDS: "Scattered clouds",
+  BROKEN_CLOUDS: "Broken clouds",
+  SHOWER_RAIN: "Shower rain",
+  RAIN: "Rain",
+  THUNDERSTORM: "Thunderstorm",
+  SNOW: "Snow",
+  MIST: "Mist",
+}
 
 export type Forecast = {
   date: Date,
