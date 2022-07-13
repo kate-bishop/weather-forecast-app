@@ -1,5 +1,5 @@
 import React from 'react';
-import '../shared/styles.scss';
+import '../shared/styles/styles.scss';
 import { styled } from '@mui/material/styles';
 import Switch, { SwitchProps } from '@mui/material/Switch'
 

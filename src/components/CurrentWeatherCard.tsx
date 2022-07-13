@@ -1,23 +1,20 @@
 import React from 'react';
-import '../shared/styles.scss';
-import { Grid, Typography, Paper } from '@mui/material'
-import { currentTemperature, currentWeather, windspeed, speedUnit } from '../shared/mockstrings';
+import { Grid, Typography } from '@mui/material'
+// TODO -- if imperial, then mph - if metric, then m/s
+import { speedUnit } from '../shared/mockstrings';
 import WeatherIcon from './WeatherIcon'
-import UnitToggle from './UnitToggle'
+import { Forecast } from '../shared/util'
 
-function CurrentWeatherCard() {
+function CurrentWeatherCard(props: { current: Forecast }) {
     return (
         <Grid container direction="row">
-            <Grid item><Typography variant="h2">{currentTemperature}°</Typography></Grid>
-            <Grid item><WeatherIcon weather={currentWeather} /></Grid>
+            <Grid item><Typography variant="h2">{props.current.main.temp}°</Typography></Grid>
+            <Grid item><WeatherIcon weather={props.current.weather.main} /></Grid>
             <Grid item>
                 <Grid container direction="column">
-                    <Typography align="left">{currentWeather}</Typography>
-                    <Typography align="left">{windspeed} {speedUnit}</Typography>
+                    <Typography align="left">{props.current.weather.description}</Typography>
+                    <Typography align="left">{props.current.wind.speed} {speedUnit}</Typography>
                 </Grid>
-            </Grid>
-            <Grid item alignContent="flex-end">
-                <UnitToggle />
             </Grid>
         </Grid>
     );
