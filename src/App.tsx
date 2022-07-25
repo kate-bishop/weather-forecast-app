@@ -6,7 +6,7 @@ import LocationHeader from './components/LocationHeader';
 import ForecastContainer from './components/ForecastContainer';
 import { getCurrent, getForecast } from './shared/utils/api'
 import { processForecast, buildForecast, getWindowSize } from './shared/utils/functions'
-import { LON, LAT, UNIT, Forecast } from './shared/utils/constants'
+import { LON, LAT, UNIT, Forecast, WindowSize } from './shared/utils/constants'
 import cloud from './shared/static/cloud.svg';
 
 export const WindowSizeContext = createContext(getWindowSize());
@@ -52,8 +52,12 @@ function App() {
         <div className="App">
           <LocationHeader />
           {!isLoading && current && <ForecastContainer forecast={forecast} current={current} unit={unit} setUnit={setUnit} />}
-          <img src={cloud} className="cloud" />
-          <img src={cloud} className="cloud_two" />
+          {windowSize > WindowSize.MEDIUM &&
+            <>
+              <img src={cloud} className="cloud" />
+              <img src={cloud} className="cloud_two" />
+            </>
+          }
         </div>
       </ThemeProvider>
     </WindowSizeContext.Provider>
