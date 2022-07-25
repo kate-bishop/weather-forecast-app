@@ -22,11 +22,6 @@ export const LOCATION = "Dallas, TX"
 export const LAT = "32.7767"
 export const LON = "-96.7970"
 export const WEEKDAY = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-export const WINDOW_SIZE = {
-    SMALL: 640, // and smaller - based on Microsoft documentation for screen size breakpoints
-    MEDIUM: 1007, // and smaller
-    LARGE: 1008, // and larger
-}
 export const SPEED_UNIT = {
     IMPERIAL: "mph",
     METRIC: "m/s",
@@ -46,3 +41,14 @@ export const WEATHER = {
     SNOW: "Snow",
     MIST: "Mist",
 }
+export const breakpoint = {
+    small: 480,
+    medium: 768,
+    large: 1024,
+}
+export enum WindowSize {
+    SMALL,
+    MEDIUM,
+    LARGE,
+    XLARGE,
+} 

@@ -4,7 +4,10 @@ $font-stack: 'Open Sans', sans-serif;
 $primary-color: rgb(74, 74, 74);
 $secondary-color: rgb(101, 174, 213);
 $tertiary-color: rgb(38, 133, 189);
-$shadow-color: rgba(0,0,0,0.2);
+$shadow-color: rgba(0, 0, 0, 0.2);
+$small-breakpoint: 480;
+$medium-breakpoint: 768;
+$large-breakpoint: 1024;
 
 .App {
   text-align: center;
@@ -26,29 +29,53 @@ $shadow-color: rgba(0,0,0,0.2);
 .container {
   border-radius: 3px;
   filter: drop-shadow(0 0 7.5px $shadow-color);
-  min-width: 75vh;
+  min-width: 50%;
   min-height: 50vh;
 }
 
 .today-container {
   border-radius: 3px;
-  min-width: 75vh;
+  min-width: 50%;
   min-height: 50vh;
   background-image: url('../static/Dallas.png');
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1.25rem 2rem 1.25rem 2rem;
 }
 
+@media only screen and (max-width: $medium-breakpoint) {
+  .container {
+    min-width: 75%;
+  }
+  .App {
+    padding-top: 5rem;
+  }
+}
+
+@media only screen and (max-width: $small-breakpoint) {
+  .container {
+    min-width: 75%;
+  }
+  .App {
+    padding-top: 5rem;
+  }
+}
+
 .forecast-container {
   border-radius: 3px;
-  min-width: 90vh;
+  min-width: 90%;
 }
 
 .forecast-card {
-  min-height: 17vh;
-  align-items: center;
-  justify-content: center;
+  padding: 1rem;
+
+  & .content {
+    min-height: 17vh;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
 }
 
 .forecast-grid {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, createContext } from 'react';
 import './shared/styles/styles.scss';
 import { theme } from './shared/styles/MuiTheme'
 import { ThemeProvider } from '@mui/material/styles'
@@ -7,6 +7,8 @@ import ForecastContainer from './components/ForecastContainer';
 import { getCurrent, getForecast } from './shared/utils/api'
 import { processForecast, buildForecast, getWindowSize } from './shared/utils/functions'
 import { LON, LAT, UNIT, Forecast } from './shared/utils/constants'
+
+export const WindowSizeContext = createContext(getWindowSize());
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -17,7 +19,7 @@ function App() {
 
   useEffect(() => {
     function handleWindowResize() {
-      setWindowSize(getWindowSize());
+      setWindowSize(getWindowSize())
     }
     window.addEventListener('resize', handleWindowResize);
     return () => {
@@ -44,12 +46,14 @@ function App() {
   }, [unit])
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-        <LocationHeader />
-        {!isLoading && current && <ForecastContainer forecast={forecast} current={current} unit={unit} setUnit={setUnit} windowSize={windowSize.innerWidth} />}
-      </div>
-    </ThemeProvider>
+    <WindowSizeContext.Provider value={windowSize} >
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <LocationHeader />
+          {!isLoading && current && <ForecastContainer forecast={forecast} current={current} unit={unit} setUnit={setUnit} />}
+        </div>
+      </ThemeProvider>
+    </WindowSizeContext.Provider>
   );
 }
 

@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import { Grid, Typography } from '@mui/material'
 import WeatherIcon from './WeatherIcon'
-import { Forecast, UNIT, SPEED_UNIT } from '../shared/utils/constants'
+import { Forecast, UNIT, SPEED_UNIT, WindowSize } from '../shared/utils/constants'
+import { WindowSizeContext } from '../App';
 
 function CurrentWeatherCard(props: { current: Forecast, unit: string }) {
+    const windowSize = useContext(WindowSizeContext);
+    
     return (
-        <Grid container direction="row" alignItems="flex-end" className="current">
+        <Grid container direction={windowSize > WindowSize.SMALL ? 'row' : 'column'} alignItems="flex-start">
             <Grid item><Typography variant="h3" color="textSecondary">{props.current.main.temp}°</Typography></Grid>
             <Grid item><WeatherIcon weather={props.current.weather.description} /></Grid>
             <Grid item>
