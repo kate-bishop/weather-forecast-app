@@ -6,11 +6,15 @@ import { WindowSizeContext } from '../App';
 
 function CurrentWeatherCard(props: { current: Forecast, unit: string }) {
     const windowSize = useContext(WindowSizeContext);
-    
+
     return (
         <Grid container direction={windowSize > WindowSize.SMALL ? 'row' : 'column'} alignItems="flex-start">
-            <Grid item><Typography variant="h3" color="textSecondary">{props.current.main.temp}°</Typography></Grid>
-            <Grid item><WeatherIcon weather={props.current.weather.description} /></Grid>
+            <Grid item>
+                <Grid container direction="row">
+                    <Typography variant="h3" color="textSecondary">{props.current.main.temp}°</Typography>
+                    <WeatherIcon weather={props.current.weather.description} />
+                </Grid>
+            </Grid>
             <Grid item>
                 <Grid container direction="column">
                     <Typography variant="subtitle2" align="left" color="textSecondary">{props.current.weather.description}</Typography>

@@ -54,8 +54,8 @@ function App() {
           {!isLoading && current && <ForecastContainer forecast={forecast} current={current} unit={unit} setUnit={setUnit} />}
           {windowSize > WindowSize.MEDIUM &&
             <>
-              <img src={cloud} className="cloud" />
-              <img src={cloud} className="cloud_two" />
+              <img src={cloud} className="cloud" alt="floating cloud" />
+              <img src={cloud} className="cloud_two" alt="floating cloud" />
             </>
           }
         </div>

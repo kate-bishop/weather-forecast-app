@@ -3,13 +3,14 @@ import '../shared/styles/styles.scss';
 import { Grid, Paper } from '@mui/material'
 import CurrentWeatherCard from './CurrentWeatherCard';
 import ForecastCard from './ForecastCard';
+import MobileForecastCard from './mobile/MobileForecastCard';
 import UnitToggle from './UnitToggle';
 import { Forecast, WindowSize } from '../shared/utils/constants'
 import { WindowSizeContext } from '../App';
 
 function ForecastContainer(props: { forecast: Forecast[], current: Forecast, unit: string, setUnit: Function }) {
     const windowSize = useContext(WindowSizeContext);
-    
+
     return (
         <Paper className="container">
             <Paper className="today-container">
@@ -23,13 +24,21 @@ function ForecastContainer(props: { forecast: Forecast[], current: Forecast, uni
                 </Grid>
             </Paper>
             <Paper className="forecast-container" elevation={0}>
-                <Grid container direction={windowSize > WindowSize.SMALL ? 'row' : 'column'} justifyContent="space-between">
-                    {
-                        props.forecast.map((fc) => <Grid item xs>
-                            <ForecastCard forecast={fc} />
-                        </Grid>)
-                    }
-                </Grid>
+                {windowSize > WindowSize.MEDIUM ?
+                    <Grid container direction="row" justifyContent="space-between">
+                        {
+                            props.forecast.map((fc) => <Grid item xs>
+                                <ForecastCard forecast={fc} />
+                            </Grid>)
+                        }
+                    </Grid> : <Grid container direction="column" justifyContent="space-between">
+                        {
+                            props.forecast.map((fc) => <Grid item xs>
+                                <MobileForecastCard forecast={fc} />
+                            </Grid>)
+                        }
+                    </Grid>
+                }
             </Paper>
         </Paper>
     );
